@@ -31,7 +31,7 @@ Replace `[lattice depth]` with the desired lattice depth in units of recoil ener
 
 ### Define Lattice Parameters
 
-The script starts by defining several parameters for the lattice system. It includes variables like system size, lattice depth, grid spacing, and other physical constants.
+The script starts by defining several parameters for the lattice system. It includes variables like system size, lattice depth, grid spacing and cut-off radius.
 
 ### File Management
 
