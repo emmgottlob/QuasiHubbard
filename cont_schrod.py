@@ -4,7 +4,7 @@ from math import pi
 from typing import Tuple
 
 import numpy as np
-from scipy.sparse import lil_matrix, diags
+from scipy.sparse import lil_matrix, diags, csc_matrix
 
 
 def index2_to_index1(i_x: int, j_y: int, nx: int) -> int:

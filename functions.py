@@ -121,7 +121,7 @@ def generate_wannier_function(index_site: int, lattice_params: Dict[str, Union[n
     window_radius = cut_off + 1.25
     x_window, y_window = generate_grid(site, window_radius, global_step)
     x_mean, y_mean = site
-    neighbour_minima = generate_sites(x_window[0], x_window[-1], y_window[0], y_window[-1], site, lattice_params,
+    neighbour_minima = generate_sites(site, lattice_params,
                                       mask_radius=cut_off)
     neighbour_octagon = generate_octagon(neighbour_minima, phis)
     neighbour_minima, neighbour_rings = clean_rings(neighbour_minima, neighbour_octagon)

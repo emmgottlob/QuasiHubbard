@@ -12,16 +12,16 @@ from generate_lattice import generate_sites, generate_octagon, clean_rings
 from potential_functions import *
 
 # Load style file
-plt.style.use('PaperDoubleFig.mplstyle')
+# plt.style.use('PaperDoubleFig.mplstyle')
 
 if __name__ == "__main__":
 
     # Define lattice parameters
 
     lattice_params = dict()
-    lattice_params['length'] = 70  # System size in units of lattice wavelength
-    lattice_params['depth'] = float(sys.argv[1])  # Lattice depth in units of recoil energy
-    lattice_params['cut_off'] = 4.0  # Cut off radius in units of lattice wavelength
+    lattice_params['length'] = float(sys.argv[2]) # System size in units of lattice wavelength
+    lattice_params['depth'] =  float(sys.argv[1])  # Lattice depth in units of recoil energy
+    lattice_params['cut_off'] = 4.0 # Cut off radius in units of lattice wavelength
     lattice_params['global_step'] = 0.1  # Grid spacing in units of lattice wavelength
     x_global, y_global = generate_grid((0.0, 0.0), lattice_params['length'] / 2 + lattice_params['cut_off'] + 0.5,
                                        lattice_params["global_step"])
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     Xglobal, Yglobal = np.meshgrid(x_global, y_global)
     V_global = potential(Xglobal, Yglobal, lattice_params["depth"], k, phis)
 
-    minima = generate_sites(x_global[0], x_global[-1], y_global[0], y_global[-1], (0.0, 0.0), lattice_params,
+    minima = generate_sites((0.0, 0.0), lattice_params,
                             mask_radius=lattice_params['length'] / 2)  # Generate list of minima
     np.save(dirname + '/phis', phis)
     octagon = generate_octagon(minima, phis)  # Generate list of configuration space coordinates of the lattice sites
@@ -90,8 +90,6 @@ if __name__ == "__main__":
     plt.xlim(np.min(x_minima) - 1.0, np.max(x_minima) + 1.0)
     plt.ylim(np.min(y_minima) - 1.0, np.max(y_minima) + 1.0)
     plt.savefig(dirname + "/lattice_sites_V.png", dpi=600)
-    sites_number = n_states
-    np.save("sites_number", sites_number)
 
     tic = time.perf_counter()
 
@@ -162,7 +160,7 @@ if __name__ == "__main__":
         wannier_functions = np.hstack(np.array(
             Parallel(n_jobs=-1, verbose=100, backend='multiprocessing', batch_size=1)(
                 delayed(compute_lowdin)(i_site, wannier_functions_vec, minima_clean, symm_orthog,
-                                        window_radius, lattice_params["globa_step"], plot=False) for i_site in
+                                        window_radius, lattice_params["global_step"], plot=False) for i_site in
                 range(minima_clean.shape[0]))))
         # np.save(dirname+'/lowdin_basis_vec', lowdin_basis_vec)
 
