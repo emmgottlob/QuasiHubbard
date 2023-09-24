@@ -1,6 +1,6 @@
-# Quasi_Hubbard
+# QuasiHubbard
 
-Quasi_Hubbard is a Python-based package for generating the Wannier functions and Hubbard Hamiltonians of quasicrystalline potentials. The Wannier functions are constructed using the method developed in [1]. In short, we compute maximally localised non-orthogonal Wannier functions locally at each lattice site. We then orthogonalise them using a Löwdin Transform. The Hubbard Hamiltonian is then computed by evaluating the relevant matrix elements between Wannier functions. The script currently handles the case of the eightfold optical quasicrystal only, but additional optical quasicrystals will soon be added in the features.
+QuasiHubbard is a Python-based tool for generating the Wannier functions and Hubbard Hamiltonians of quasicrystalline potentials. The Wannier functions are constructed using the method developed in [1]. In short, we compute maximally localised non-orthogonal Wannier functions locally at each lattice site. We then orthogonalise them using a Löwdin Transform. The Hubbard Hamiltonian is then computed by evaluating the relevant matrix elements between Wannier functions. The script currently handles the case of the eightfold optical quasicrystal only, but additional optical quasicrystals will soon be added in the features.
 
 Energies are expressed in recoil energy $E_{rec} = \hbar^2 k^2 / (2 m)$, and distances in units of the optical lattice wavelength $\lambda$, and $k = 2\pi / \lambda$. The eightfold quasicrystalline optical potential is given by:
 
