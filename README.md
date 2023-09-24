@@ -25,7 +25,7 @@ You can execute the script by running the following command:
 python Quasi_Hubbard.py [lattice depth] [system_diameter]
 ```
 
-Replace `[lattice depth]` with the desired lattice depth in units of recoil energy, and `[system_diameter]` is the desired system radius in units of the wavelength $\lambda$.
+Replace `[lattice depth]` with the desired lattice depth in units of recoil energy, and `[system_diameter]` the desired system radius in units of the wavelength $\lambda$.
 
 ## How It Works
 
