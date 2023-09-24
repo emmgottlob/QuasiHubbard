@@ -22,7 +22,7 @@ If you wish to use results produced with this package in a scientific publicatio
 You can execute the script by running the following command:
 
 ```
-python Quasi_Hubbard.py [lattice depth] [system_diameter]
+python quasi_hubbard.py [lattice depth] [system_diameter]
 ```
 
 Replace `[lattice depth]` with the desired lattice depth in units of recoil energy, and `[system_diameter]` the desired system radius in units of the wavelength $\lambda$.
