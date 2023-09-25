@@ -32,14 +32,20 @@ Replace `[lattice depth]` with the desired lattice depth in units of recoil ener
 ### Define Lattice Parameters
 
 The script starts by defining several parameters for the lattice system. It includes variables like system size, lattice depth, grid spacing and cut-off radius.
+Note that convergence must be checked as a function of the grid spacing and cut-off radius!
+At low lattice depth Wannier functions can become very extended, requiring larger cut-off radius.
+At high lattice depth Wannier functions can become tightly localised, requiring finer grid spacing.
+### Compute Wannier functions
+The script then computes maximally localised Wannier functions at every lattice sites. Afterwards, it orthogonalises them using a Löwdin Transform.
+Finally, the script computes all the relevant Hubbard parameters: onsite energies, tunneling amplitudes, onsite and offsite interactions two-body integrals.
 
 ### File Management
 
-The script saves results and temporary data in a structured directory hierarchy, facilitating better organization and easier retrieval of computational results.
+The script saves matrices in sparse format (.npz), it also stores intermediate results in case the code stops in the middle of a run.
 
 ### Parallel Computations
 
-For computationally intensive tasks such as constructing the Wannier functions, computing the Hamiltonian matrix elements, overlap matrix, and off-site interactions calculations, the script leverages parallel computing for improved efficiency.
+For computationally intensive tasks such as constructing the Wannier functions, computing the Hamiltonian matrix elements, overlap matrix, and off-site interactions calculations, the script leverages parallel computing for improved efficiency using the joblib library.
 
 ## Contributing
 
